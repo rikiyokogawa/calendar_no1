@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">calendar_no1</string>
+    <string name="app_name">NPBカレンダー</string>
+    <string name="share">share</string>
 </resources>
