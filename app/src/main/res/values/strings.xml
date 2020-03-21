@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">NPBカレンダー</string>
     <string name="share">share</string>
+    <string name="game">Game</string>
 </resources>
