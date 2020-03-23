@@ -1,8 +1,11 @@
 package com.example.calendar_no1
 
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import java.io.BufferedReader
@@ -27,6 +30,24 @@ class MainActivity : AppCompatActivity() {
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
 
+        // ボタンを設定
+        val button: View = findViewById<Button>(R.id.fab)
+        button.setOnClickListener {
+            val editText = EditText(this)
+            editText.hint = "ここに入力"
+            //ダイアログだす
+            AlertDialog.Builder(this)
+                .setTitle("タイトル")
+                .setView(editText)
+                .setPositiveButton("登録",
+                    DialogInterface.OnClickListener { dialog, which ->
+                        Log.d("AlertDialog", "test")
+                    })
+                .show()
+        }
+
+
+
         //csvの読み取り
         readCsv("baseballGames.csv")
 
@@ -36,23 +57,6 @@ class MainActivity : AppCompatActivity() {
             val textView: TextView = findViewById(R.id.textView1)
             textView.text = date
             //Toast.makeText(this, date, Toast.LENGTH_SHORT).show()
-
-            // ボタンを設定
-            val button = findViewById<Button>(R.id.fab) as Button
-            button.setOnClickListener {
-                val editText = EditText(this)
-                editText.hint = "編集できるよ！"
-                AlertDialog.Builder(this)
-                    .setTitle("タイトル")
-                    .setMessage("メッセージ")
-                    .setView(editText)
-                    .setPositiveButton("OK",
-                        DialogInterface.OnClickListener { dialog, which ->
-                            // お好きな処理をどうぞ
-                        })
-                    .show()
-            }
-
 
             val textView1: TextView = findViewById(R.id.textView2)
             textView.text = game[2]
@@ -80,7 +84,14 @@ class MainActivity : AppCompatActivity() {
             }
             i++;
         }
-
-
     }
+
+    //TODO: カスタムダイアログを作ろうとしている
+//    override fun onCreateDialog(id: Int): Dialog? {
+//        val dialog: Dialog
+//        dialog = Dialog(this)
+//        dialog.setContentView(R.layout.dialog)
+//        dialog.setPositiveButton("もう一度",
+//            DialogInterface.OnClickListener { dialogInterface, i -> recreate() })
+//    }
 }

@@ -2,4 +2,9 @@
     <string name="app_name">NPBカレンダー</string>
     <string name="share">share</string>
     <string name="game">Game</string>
+    <string name="schedule">予定</string>
+    <string name="date">日付</string>
+    <string name="title">タイトル</string>
+    <string name="reg">登録</string>
+    <string name="content">内容</string>
 </resources>
